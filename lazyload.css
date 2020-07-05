@@ -1,0 +1,17 @@
+/* Lazy Load Styles */
+.lazy-load-image {
+	display: block;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.lazy-load-image > img {
+	display: block;
+	width: 100%;
+	opacity: 0; /* visually hide the img element */
+}
+
+.lazy-load-image.is-loaded {
+	filter: none !important; /* remove the blur on fullres image */
+}
