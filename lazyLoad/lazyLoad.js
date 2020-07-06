@@ -52,7 +52,8 @@ class lazyLoadImage {
         var imageHtml = "<div data-image-full='"+this._highResImageURL+"' style='background-image: url("+this._lowResImageURL+");' class='lazy-load-image' id='" + this._elementID + "'>";
         imageHtml += "<img src=''>";
         imageHtml += "</div>";
-        document.getElementById(this._parentElementID).innerHTML = imageHtml;
+		document.getElementById(this._parentElementID).innerHTML = imageHtml;
+		document.getElementById(this._parentElementID).style.overflow = 'hidden';
 	}
 
     //Low Res Image URL getter/setter
