@@ -1,25 +1,26 @@
 class lazyLoadImage {
-    constructor(documentID, lowRes, highRes, location, time, blur, delay) {
+    constructor(documentID, lowRes, highRes, location) {
 		this._elementID = documentID;
 		this._lowResImageURL = lowRes;
 		this._highResImageURL = highRes;        
 		this._parentElementID = location;
-		this._transitionTime = time || 1;
-		this._blurAmount = blur || 20;
-
-		const timeDelay = delay || 1000;
+		this._transitionTime = 1;
+		this._blurAmount = 20;
+		this._delay = 1000;
 		
 		this.outputImage();
 		this.addTransitionTimeToCSS();
 		this.addBlurAmountToCSS();
-
-		var self = this;
-		setTimeout(function(){ 
-			self.beginLazyLoading();
-		}, timeDelay);
 	}
 	
 	// Methods
+
+	initLazyLoading(){
+		var self = this;
+		setTimeout(function(){ 
+			self.beginLazyLoading();
+		}, this._delay);
+	}
 
 	// start the lazy load functionality. Change the class and background URL
 	beginLazyLoading(){
@@ -93,7 +94,8 @@ class lazyLoadImage {
 		return this._transitionTime;
 	}
 	set transitionTime(x) {
-        this._transitionTime = x;
+		this._transitionTime = x;
+		this.addTransitionTimeToCSS();
 	}
 	
 	//blur pxs getter/setter
@@ -101,6 +103,15 @@ class lazyLoadImage {
 		return this._blurAmount;
 	}
 	set blurAmount(x) {
-        this._blurAmount = x;
+		this._blurAmount = x;
+		this.addBlurAmountToCSS();
+	}
+	
+	//delay pxs getter/setter
+    get delay() {
+		return this._delay;
+	}
+	set delay(x) {
+		this._delay = x;
     }
 }

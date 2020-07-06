@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lazy Load Example 1</title>
+<link rel="stylesheet" href="../lazyload.css">
+<script src="../lazyLoad.js"></script> 
+</head>
+
+<body>
+
+	<div id="holder" style="height:200px;  width: 200px;">
+    </div>
+
+</body>
+
+<script>
+	//example two - slow load increased transition time
+	lazyLoadExampleTwo = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	lazyLoadExampleTwo.transitionTime = 5;
+	lazyLoadExampleTwo.initLazyLoading();
+</script>
+
+</html>

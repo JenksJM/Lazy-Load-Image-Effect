@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lazy Load Example 3</title>
+<link rel="stylesheet" href="../lazyload.css">
+<script src="../lazyLoad.js"></script> 
+</head>
+
+<body>
+
+	<div id="holder" style="height:200px;  width: 200px;">
+    </div>
+
+</body>
+
+<script>
+	//example three - extra blury increased blur pixelation
+	lazyLoadExampleThree = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	lazyLoadExampleThree.blurAmount = 50;
+	lazyLoadExampleThree.initLazyLoading();
+</script>
+
+</html>

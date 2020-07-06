@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lazy Load Example 1</title>
+<link rel="stylesheet" href="../lazyload.css">
+<script src="../lazyLoad.js"></script> 
+</head>
+
+<body>
+
+	<div id="holder" style="height:200px;  width: 200px;">
+	</div>
+
+</body>
+
+<script>
+	//example five - all custom features
+	lazyLoadExampleFour = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	lazyLoadExampleFour.transitionTime = 3;
+	lazyLoadExampleFour.blurAmount = 10;
+	lazyLoadExampleFour.delay = 3000; // time in ms
+	lazyLoadExampleFour.initLazyLoading();
+</script>
+
+</html>
