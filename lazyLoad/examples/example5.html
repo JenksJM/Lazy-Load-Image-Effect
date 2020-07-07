@@ -9,17 +9,18 @@
 <body>
 
 	<div id="holder" style="height:200px;  width: 200px;">
+		<img id="example5" src="img/lowRes.jpg">
 	</div>
 
 </body>
 
 <script>
 	//example five - all custom features
-	lazyLoadExampleFour = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
-	lazyLoadExampleFour.transitionTime = 3;
-	lazyLoadExampleFour.blurAmount = 10;
-	lazyLoadExampleFour.delay = 3000; // time in ms
-	lazyLoadExampleFour.initLazyLoading();
+	lazyLoadExampleFive = new lazyLoadImage("example5", "img/highRes.jpg");
+	lazyLoadExampleFive.transitionTime = 3;
+	lazyLoadExampleFive.blurAmount = 10;
+	lazyLoadExampleFive.delay = 3000; // time in ms
+	lazyLoadExampleFive.initLazyLoading();
 </script>
 
 </html>

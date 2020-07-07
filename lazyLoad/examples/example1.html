@@ -9,13 +9,14 @@
 <body>
 
 	<div id="holder" style="height:200px;  width: 200px;">
+		<img id="example1" src="img/lowRes.jpg">
 	</div>
 
 </body>
 
 <script>
 	//example one - standard features are used 
-	lazyLoadExampleOne = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder").initLazyLoading();
+	lazyLoadExampleOne = new lazyLoadImage("example1", "img/highRes.jpg").initLazyLoading();
 </script>
 
 </html>

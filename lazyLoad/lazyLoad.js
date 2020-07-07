@@ -1,14 +1,12 @@
 class lazyLoadImage {
-    constructor(documentID, lowRes, highRes, location) {
+    constructor(documentID, highRes) {
 		this._elementID = documentID;
-		this._lowResImageURL = lowRes;
-		this._highResImageURL = highRes;        
-		this._parentElementID = location;
+		this._highResImageURL = highRes;
 		this._transitionTime = 1;
 		this._blurAmount = 20;
 		this._delay = 1000;
-		
-		this.outputImage();
+
+		this.addLazyLoadClassToImgTag();
 		this.addTransitionTimeToCSS();
 		this.addBlurAmountToCSS();
 	}
@@ -24,18 +22,20 @@ class lazyLoadImage {
 
 	// start the lazy load functionality. Change the class and background URL
 	beginLazyLoading(){
-
-		const holderElement = document.getElementById(this._elementID);
-		const imageTag = holderElement.querySelector('img');
+		const imageTag = document.getElementById(this._elementID);
 		const highResImage = this._highResImageURL
 
 		imageTag.src = highResImage;
 		
 		imageTag.addEventListener('load', function() {
-			
-			holderElement.style.backgroundImage = 'url(' + highResImage + ')';
-			holderElement.className = holderElement.className + ' is-loaded';
+			imageTag.className = imageTag.className + ' is-loaded';
 		});
+	}
+
+	// add lazy load classto img tag
+	addLazyLoadClassToImgTag(){
+		const imgElement = document.getElementById(this._elementID);
+		imgElement.className = imgElement.className + 'lazy-load-image ';
 	}
 
 	// add dynamic transition time to CSS
@@ -46,23 +46,6 @@ class lazyLoadImage {
 	// add dynamic blur amount to CSS
 	addBlurAmountToCSS(){
 		document.getElementById(this._elementID).style.filter = 'blur('+this._blurAmount+'px)';
-	}
-	
-	//output image and holder output
-	outputImage() {
-        var imageHtml = "<div data-image-full='"+this._highResImageURL+"' style='background-image: url("+this._lowResImageURL+");' class='lazy-load-image' id='" + this._elementID + "'>";
-        imageHtml += "<img src=''>";
-        imageHtml += "</div>";
-		document.getElementById(this._parentElementID).innerHTML = imageHtml;
-		document.getElementById(this._parentElementID).style.overflow = 'hidden';
-	}
-
-    //Low Res Image URL getter/setter
-    get lowResImageURL() {
-        return this._lowResImageURL;
-    }
-    set lowResImageURL(x) {
-        this._lowResImageURL = x;
 	}
 	
 	//High Res Image URL getter/setter
@@ -80,14 +63,6 @@ class lazyLoadImage {
     set elementID(x) {
         this._elementID = x;
     }
-
-    //parentElementID getter/setter
-    get parentElementID() {
-		return this._parentElementID;
-	}
-	set parentElementID(x) {
-        this._parentElementID = x;
-	}
 	
 	//transition time getter/setter
     get transitionTime() {

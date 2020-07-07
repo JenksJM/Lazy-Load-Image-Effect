@@ -9,13 +9,14 @@
 <body>
 
 	<div id="holder" style="height:200px;  width: 200px;">
+		<img id="example3" src="img/lowRes.jpg">
     </div>
 
 </body>
 
 <script>
 	//example three - extra blury increased blur pixelation
-	lazyLoadExampleThree = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	lazyLoadExampleThree = new lazyLoadImage("example3", "img/highRes.jpg");
 	lazyLoadExampleThree.blurAmount = 50;
 	lazyLoadExampleThree.initLazyLoading();
 </script>

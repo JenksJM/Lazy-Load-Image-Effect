@@ -9,13 +9,14 @@
 <body>
 
 	<div id="holder" style="height:200px;  width: 200px;">
+		<img id="example2" src="img/lowRes.jpg">
     </div>
 
 </body>
 
 <script>
-	//example two - slow load increased transition time
-	lazyLoadExampleTwo = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	//example two - slow unblur increased transition time
+	lazyLoadExampleTwo = new lazyLoadImage("example2", "img/highRes.jpg");
 	lazyLoadExampleTwo.transitionTime = 5;
 	lazyLoadExampleTwo.initLazyLoading();
 </script>

@@ -9,13 +9,14 @@
 <body>
 
 	<div id="holder" style="height:200px;  width: 200px;">
+		<img id="example4" src="img/lowRes.jpg">
 	</div>
 
 </body>
 
 <script>
 	//example four - remove delay from lazy loading
-	lazyLoadExampleFour = new lazyLoadImage("lazyLoadedImage", "img/lowRes.jpg", "img/highRes.jpg", "holder");
+	lazyLoadExampleFour = new lazyLoadImage("example4", "img/highRes.jpg");
 	lazyLoadExampleFour.delay = 0;  // time in ms
 	lazyLoadExampleFour.initLazyLoading();
 </script>
